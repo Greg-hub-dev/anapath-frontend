@@ -268,11 +268,11 @@ elif navigation == "Informations complémentaires":
                 new_width = int(width * ratio)
                 new_height = int(height * ratio)
                 img = img.resize((new_width, new_height), Image.LANCZOS)
-                # Convertir en JPEG et encoder en base64
-                buffer = io.BytesIO()
-                img.convert('RGB').save(buffer, format="JPEG", quality=100)
-                buffer.seek(0)
-                encoded_image = base64.b64encode(buffer.read()).decode('utf-8')
+            # Convertir en JPEG et encoder en base64
+            buffer = io.BytesIO()
+            img.convert('RGB').save(buffer, format="JPEG", quality=100)
+            buffer.seek(0)
+            encoded_image = base64.b64encode(buffer.read()).decode('utf-8')
         # Détection du type MIME réel
         if image_bytes.startswith(b'\xff\xd8'):
             media_type = "image/jpeg"
