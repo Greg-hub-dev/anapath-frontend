@@ -86,7 +86,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # URL de l API
-url = 'https://anapath2-1068402267466.europe-west1.run.app'
+url = 'https://anapath-demo-1068402267466.europe-west1.run.app'
 #url = 'http://localhost:8000'
 
 # En-tête et introduction
@@ -171,7 +171,7 @@ if uploaded_file is not None:
                         st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;**Pourcentage de cellules tumorales dans la zone sélectionnée {result_data.get('p_class_tx').upper()}**")
                         st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le Taux de Cellularité:** {result_data.get('c_tx')} %")
                     else:
-
+                        st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {result_data.get('c_diag')} %")
                     # Affichage des résultats détaillés
                     st.markdown("### Résultats Détaillés de l'Analyse")
                     #st.json(result_data)
