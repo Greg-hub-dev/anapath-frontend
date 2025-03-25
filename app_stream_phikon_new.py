@@ -368,7 +368,7 @@ elif navigation == "Informations complémentaires":
         except Exception as e:
             print(f"Erreur inattendue: {e}")
             raise
-
+        
 
 
 # Footer Section
