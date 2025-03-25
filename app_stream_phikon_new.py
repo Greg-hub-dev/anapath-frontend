@@ -225,7 +225,7 @@ elif navigation == "Analyse et Résultats":
 
                     prediction = res.json()
 
-                    pred_res = prediction['X-Prediction-Result']
+                    pred_res = prediction['diag']
                     pred_pdiag = prediction['p_diag']
                     pred_ptx = prediction['p_tx']
                     pred_pclassd = prediction['p_class_d']
