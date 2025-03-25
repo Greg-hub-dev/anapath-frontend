@@ -19,6 +19,16 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# Définir le CSS personnalisé pour changer la couleur de fond
+st.markdown("""
+<style>
+    .stApp {
+        background-color: #f0f0f0; /* Un gris clair */
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
 # Apply the custom CSS
 st.markdown(
 """
