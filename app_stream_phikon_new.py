@@ -162,7 +162,7 @@ elif navigation == "Analyse et Résultats":
             """, unsafe_allow_html=True)
 
             # Affichage de l'image téléchargée
-        image = Image.open(uploaded_file)
+        image = Image.open(io.BytesIO(uploaded_file.getvalue()))
         st.image(image, caption="Image histologique téléchargée", use_container_width=True)
 
             # Informations sur l'image
