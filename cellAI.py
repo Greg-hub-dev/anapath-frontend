@@ -244,8 +244,8 @@ elif navigation == "Analyse et Résultats":
             st.image(image, caption="Image histologique téléchargée", use_container_width=True)
 
             # Informations sur l'image
-        st.markdown(f"**Dimensions:** {image.width} × {image.height} pixels")
-        st.markdown(f"**Format:** {uploaded_file.type}")
+            st.markdown(f"**Dimensions:** {image.width} × {image.height} pixels")
+            st.markdown(f"**Format:** {uploaded_file.type}")
 
 
 
