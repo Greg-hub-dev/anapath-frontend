@@ -281,11 +281,11 @@ elif navigation == "Analyse et Résultats":
                     if res.headers.get('p_class_d') == 'tumor':
                         st.markdown("&nbsp;&nbsp;&nbsp;carcinome infiltrant de type non spécifique - Échantillon tumoral inclus en paraffine pour génétique somatique")
                         st.markdown("&nbsp;&nbsp;&nbsp;Absence de facteur confondant à type de nécrose, fibrose, ou mucine.")
-                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {{:.2f}".format(float(result_data.get('c_diag'))*100)} %")
+                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {"{:.2f}".format(float(result_data.get('c_diag'))*100)} %")
                         st.markdown(f"&nbsp;&nbsp;&nbsp;**Pourcentage de cellules tumorales dans la zone sélectionnée** {result_data.get('p_class_tx').upper()}")
-                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le Taux de Cellularité:** {result_data.get('c_tx')} %")
+                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le Taux de Cellularité:** {"{:.2f}".format(float(result_data.get('c_tx'))*100} %")
                     else:
-                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {result_data.get('c_diag')} %")
+                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {"{:.2f}".format(result_data.get('c_diag'))*100} %")
                     st.success("Analyse complétée avec succès")
 
                 else:
