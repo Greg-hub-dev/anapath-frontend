@@ -370,7 +370,10 @@ elif navigation == "Analyse et Résultats":
             1. Diagnostic complet (cancéreux/non)
             2. Estimation de la cellularité tumorale
             3. Grade histologique
-            4. Caractéristiques morphologiques clés"""
+            4. Caractéristiques morphologiques clés
+            Si le diagnostic dans technical data est qu'il n'y a pas de cancer, faire uniquement une description de la lame saine sans indication de cancer pour confirmer le diagnostic sain.
+            
+            """
 
             user_prompt = f"""[RÉSULTATS TECHNIQUES]
             {json.dumps(technical_data, indent=2)}
