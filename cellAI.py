@@ -275,6 +275,7 @@ elif navigation == "Analyse et Résultats":
                     st.success("Analyse complétée avec succès")
 
                     result_data = res.headers
+                    diag=result_data.get('diag')
                     st.markdown("### **Microbiopsie d'une lésion du sein gauche (externe) :**")
                     st.markdown("")
                     st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;**Diagnostic:** {result_data.get('diag')}")
@@ -455,7 +456,7 @@ elif navigation == "Analyse et Résultats":
                 api_key = st.secrets["CLAUDE_API_KEY"]
                 # Créer un dictionnaire minimal avec le diagnostic pour Claude
                 technical_data = {
-                    "diagnostic": result_data,
+                    "diagnostic": diag,
                     "probability": "Non spécifiée",
                     "cellularity": "Non spécifiée",
                     "grade": "Non spécifié"
