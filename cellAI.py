@@ -270,10 +270,9 @@ elif navigation == "Analyse et Résultats":
 
                 if res.status_code == 200:
                     # Affichage de l'image annotée retournée par l'API
-                    st.image(res.content, caption="Image Analysée avec Annotations", use_container_width=True)
+                    #st.image(res.content, caption="Image Analysée avec Annotations", use_container_width=True)
 
-                    st.success("Analyse complétée avec succès")
-
+                    
                     result_data = res.headers
                     diag=result_data.get('diag')
                     st.markdown("### **Microbiopsie d'une lésion du sein gauche (externe) :**")
@@ -287,10 +286,11 @@ elif navigation == "Analyse et Résultats":
                         st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le Taux de Cellularité:** {result_data.get('c_tx')} %")
                     else:
                         st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {result_data.get('c_diag')} %")
+                    st.success("Analyse complétée avec succès")
 
                 else:
                     st.error(f"Erreur lors de l'analyse: {res.status_code} - {res.text}")
-
+                    
             except Exception as e:
                 st.error(f"Une erreur s'est produite: {str(e)}")
 
