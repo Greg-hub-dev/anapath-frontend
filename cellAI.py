@@ -457,7 +457,7 @@ elif navigation == "Analyse et Résultats":
         if uploaded_file is not None:
             img_bytes = uploaded_file.getvalue()
 
-            with st.spinner("Interprétation des résultats par Claude..."):
+            with st.spinner("Interprétation des résultats ..."):
                 progress_bar = st.progress(0)
                 for i in range(100):
                     time.sleep(0.02)
