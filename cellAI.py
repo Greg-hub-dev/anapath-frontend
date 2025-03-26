@@ -239,8 +239,9 @@ elif navigation == "Analyse et Résultats":
             """, unsafe_allow_html=True)
 
          # Affichage de l'image téléchargée
-        image = Image.open(uploaded_file)
-        st.image(image, caption="Image histologique téléchargée", use_container_width=True)
+        if uploaded_file is not None:
+            image = Image.open(uploaded_file)
+            st.image(image, caption="Image histologique téléchargée", use_container_width=True)
 
             # Informations sur l'image
         st.markdown(f"**Dimensions:** {image.width} × {image.height} pixels")
