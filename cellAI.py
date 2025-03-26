@@ -249,7 +249,7 @@ elif navigation == "Analyse et Résultats":
 
 
 
-    col3, col4, col5 = st.columns([3,0.5,3])
+    col3, col5 = st.columns([4,4])
 
 # Card 3 - Résultats du modèle
     with col3:
@@ -312,13 +312,7 @@ elif navigation == "Analyse et Résultats":
 
 
 
-# Card 4 - VS
-    with col4:
-        st.markdown("""
-            <div>
-                <p style="padding-top: 100px; text-align: center; font-size: 30px; font-weight: bold, color: #555;">VS</p>
-            </div>
-        """, unsafe_allow_html=True)
+
 
 
 # Card 5 - Interprétation par Claude
