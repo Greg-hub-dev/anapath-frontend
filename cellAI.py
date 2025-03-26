@@ -143,28 +143,28 @@ Cet outil d'aide à la décision analyse les images histologiques et fournit une
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pre/slide1.png" class="d-block w-100" alt="Slide 1">
+            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/slide1.png" class="d-block w-100" alt="Slide 1">
             </div>
             <div class="carousel-item">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pre/slide2.png" class="d-block w-100" alt="Slide 2">
+            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/slide2.png" class="d-block w-100" alt="Slide 2">
             </div>
             <div class="carousel-item">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pre/slide3.png" class="d-block w-100" alt="Slide 3">
+            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/slide3.png" class="d-block w-100" alt="Slide 3">
             </div>
             <div class="carousel-item">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pre/slide4.png" class="d-block w-100" alt="Slide 3">
+            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/slide4.png" class="d-block w-100" alt="Slide 3">
             </div>
             <div class="carousel-item">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pre/slide5.png" class="d-block w-100" alt="Slide 3">
+            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/slide5.png" class="d-block w-100" alt="Slide 3">
             </div>
             <div class="carousel-item">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pre/slide6.png" class="d-block w-100" alt="Slide 3">
+            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/slide6.png" class="d-block w-100" alt="Slide 3">
             </div>
             <div class="carousel-item">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pre/slide7.png" class="d-block w-100" alt="Slide 3">
+            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/slide7.png" class="d-block w-100" alt="Slide 3">
             </div>
             <div class="carousel-item">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pre/slide8.png" class="d-block w-100" alt="Slide 3">
+            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/slide8.png" class="d-block w-100" alt="Slide 3">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
