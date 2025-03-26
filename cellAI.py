@@ -267,48 +267,48 @@ elif navigation == "Analyse et Résultats":
             """, unsafe_allow_html=True)
 
         st.markdown('</div>', unsafe_allow_html=True)
-
-        with st.spinner("Analyse en cours..."):
-            # Obtention des bytes de l'image
-            img_bytes = uploaded_file.getvalue()
-
-            # Appel à l'API
-            try:
-                # Afficher une barre de progression pour améliorer l'expérience utilisateur
-                progress_bar = st.progress(0)
-                for i in range(100):
-                    # Simulation de traitement
-                    time.sleep(0.01)
-                    progress_bar.progress(i + 1)
-
-                # Envoi de l'image à l'API
-                res = requests.post(url + "/upload_image", files={'img': img_bytes}, timeout=30)
-
-                if res.status_code == 200:
-                    # Affichage de l'image annotée retournée par l'API
-                    #st.image(res.content, caption="Image Analysée avec Annotations", use_container_width=True)
-
-                    
-                    result_data = res.headers
-                    diag=result_data.get('diag')
-                    st.markdown("### **Microbiopsie d'une lésion du sein gauche (externe) :**")
-                    st.markdown("")
-                    st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;**Diagnostic:** {result_data.get('diag')}")
-                    if res.headers.get('p_class_d') == 'tumor':
-                        st.markdown("&nbsp;&nbsp;&nbsp;carcinome infiltrant de type non spécifique - Échantillon tumoral inclus en paraffine pour génétique somatique")
-                        st.markdown("&nbsp;&nbsp;&nbsp;Absence de facteur confondant à type de nécrose, fibrose, ou mucine.")
-                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {"{:.2f}".format(float(result_data.get('c_diag')) * 100)} %")
-                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Pourcentage de cellules tumorales dans la zone sélectionnée** {result_data.get('p_class_tx').upper()}")
-                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le Taux de Cellularité:** {"{:.2f}".format(float(result_data.get('c_tx')) * 100)} %")
+        if uploaded_file is not None:
+            with st.spinner("Analyse en cours..."):
+                # Obtention des bytes de l'image
+                img_bytes = uploaded_file.getvalue()
+    
+                # Appel à l'API
+                try:
+                    # Afficher une barre de progression pour améliorer l'expérience utilisateur
+                    progress_bar = st.progress(0)
+                    for i in range(100):
+                        # Simulation de traitement
+                        time.sleep(0.01)
+                        progress_bar.progress(i + 1)
+    
+                    # Envoi de l'image à l'API
+                    res = requests.post(url + "/upload_image", files={'img': img_bytes}, timeout=30)
+    
+                    if res.status_code == 200:
+                        # Affichage de l'image annotée retournée par l'API
+                        #st.image(res.content, caption="Image Analysée avec Annotations", use_container_width=True)
+    
+                        
+                        result_data = res.headers
+                        diag=result_data.get('diag')
+                        st.markdown("### **Microbiopsie d'une lésion du sein gauche (externe) :**")
+                        st.markdown("")
+                        st.markdown(f"&nbsp;&nbsp;&nbsp;&nbsp;**Diagnostic:** {result_data.get('diag')}")
+                        if res.headers.get('p_class_d') == 'tumor':
+                            st.markdown("&nbsp;&nbsp;&nbsp;carcinome infiltrant de type non spécifique - Échantillon tumoral inclus en paraffine pour génétique somatique")
+                            st.markdown("&nbsp;&nbsp;&nbsp;Absence de facteur confondant à type de nécrose, fibrose, ou mucine.")
+                            st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {"{:.2f}".format(float(result_data.get('c_diag')) * 100)} %")
+                            st.markdown(f"&nbsp;&nbsp;&nbsp;**Pourcentage de cellules tumorales dans la zone sélectionnée** {result_data.get('p_class_tx').upper()}")
+                            st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le Taux de Cellularité:** {"{:.2f}".format(float(result_data.get('c_tx')) * 100)} %")
+                        else:
+                            st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {"{:.2f}".format(float(result_data.get('c_diag')) * 100)} %")
+                        st.success("Analyse complétée avec succès")
+    
                     else:
-                        st.markdown(f"&nbsp;&nbsp;&nbsp;**Intervalle de confiance pour le diagnostic :** {"{:.2f}".format(float(result_data.get('c_diag')) * 100)} %")
-                    st.success("Analyse complétée avec succès")
-
-                else:
-                    st.error(f"Erreur lors de l'analyse: {res.status_code} - {res.text}")
-                    
-            except Exception as e:
-                st.error(f"Une erreur s'est produite: {str(e)}")
+                        st.error(f"Erreur lors de l'analyse: {res.status_code} - {res.text}")
+                        
+                except Exception as e:
+                    st.error(f"Une erreur s'est produite: {str(e)}")
 
 
 
