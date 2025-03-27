@@ -205,7 +205,6 @@ if navigation == "Home":
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -228,9 +227,6 @@ if navigation == "Home":
             </div>
             <div class="carousel-item">
             <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/Slide7.PNG" class="d-block w-100" alt="Slide 7">
-            </div>
-            <div class="carousel-item">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/Slide8.PNG" class="d-block w-100" alt="Slide 8">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
