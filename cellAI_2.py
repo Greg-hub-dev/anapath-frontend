@@ -365,7 +365,7 @@ elif navigation == "Analyse et Résultats":
         </div>
             """, unsafe_allow_html=True)
 
-         # Affichage de l'image téléchargée
+         # Affichage de l'image téléchargée - A modifier greg
         if uploaded_file is not None:
             image = Image.open(uploaded_file)
             st.image(image, caption="Image histologique téléchargée", use_container_width=True)
