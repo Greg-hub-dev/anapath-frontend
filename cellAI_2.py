@@ -8,7 +8,7 @@ import base64
 import json
 import time
 import streamlit.components.v1 as components
-from presentation import show_presentation
+
 
 # URL de l'API
 url = 'https://anapath-demo2-1068402267466.europe-west1.run.app'
