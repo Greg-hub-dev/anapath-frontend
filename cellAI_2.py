@@ -9,6 +9,7 @@ import json
 import time
 import streamlit.components.v1 as components
 
+
 # URL de l'API
 url = 'https://anapath-demo2-1068402267466.europe-west1.run.app'
 
@@ -111,7 +112,7 @@ if navigation == "Home":
     st.header("Home")
 
 # image et à propos de l'outil
-    img_outil, text_outil= st.columns([1,4])
+    img_outil, text_outil= st.columns([1.2,4])
 
     with img_outil:
         st.markdown("""
@@ -124,7 +125,7 @@ if navigation == "Home":
         """, unsafe_allow_html=True)
         st.markdown("""
             <div class="img_outil">
-                <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/site/tile_02174_c174_r0_c9_small.png">
+                <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/site/outil (1).png">
             </div>
         """, unsafe_allow_html=True)
 
@@ -140,7 +141,7 @@ if navigation == "Home":
         st.markdown("""
             <div class="text_outil">
                 <h3>🔍 À propos de cet outil</h3>
-                <p>Cet outil d'aide à la décision analyse les images histologiques et fournit une évaluation :</p>
+                <p>Cet outil d'aide à la décision analyse les images histologiques et fournit une évaluation:</p>
                 <p> - Du diagnostic potentiel de tissus cancéreux</p>
                 <p> - De l estimation du taux de cellularité tumorale</p>
                 <p> - Des caractéristiques morphologiques significatives</p>
@@ -204,7 +205,6 @@ if navigation == "Home":
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -228,9 +228,6 @@ if navigation == "Home":
             <div class="carousel-item">
             <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/Slide7.PNG" class="d-block w-100" alt="Slide 7">
             </div>
-            <div class="carousel-item">
-            <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/pres/Slide8.PNG" class="d-block w-100" alt="Slide 8">
-            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -247,6 +244,8 @@ if navigation == "Home":
         """
 
     st.components.v1.html(carousel_html, height=450)
+
+
 
 # image méthodologie
     img_met, text_met= st.columns([1,4])
@@ -316,7 +315,7 @@ if navigation == "Home":
         """, unsafe_allow_html=True)
         st.markdown("""
             <div class="img_conf">
-                <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/site/tile_02174_c174_r0_c9_small.png">
+                <img src="https://raw.githubusercontent.com/Greg-hub-dev/anapath-frontend/main/images/site/image (3).png">
             </div>
         """, unsafe_allow_html=True)
 
@@ -459,6 +458,7 @@ elif navigation == "Analyse et Résultats":
                                     """, unsafe_allow_html=True)
 
                         st.success("Analyse complétée avec succès")
+                        st.markdown("Link: (https://huggingface.co/owkin/phikon)")
 
                     else:
                         st.error(f"Erreur lors de l'analyse: {res.status_code} - {res.text}")
@@ -519,11 +519,46 @@ elif navigation == "Analyse et Résultats":
             # Prompt plus clair
             system_prompt = f"""
             [SYSTÈME]
-            Vous êtes un anatomopathologiste senior. Analysez cette image histologique et fournissez :
+            Vous êtes un anatomopathologiste senior. Analysez cette image histologique de tissu mammaire et fournissez :
             1. Diagnostic complet (cancéreux/non)
             2. Estimation de la cellularité tumorale
             3. Grade histologique
-            4. Caractéristiques morphologiques clés"""
+            4. Caractéristiques morphologiques clés
+            5. Propositon des analyses complémentaires pour confirmer le diagnostic
+            Si le diagnostic dans technical data est qu'il n'y a pas de cancer,
+            faire uniquement une description de la lame saine sans indication de cancer pour confirmer le diagnostic sain.
+            Tu peux t'inspirer de cet exemple de compte-rendu pour donner tes résultats :
+            EXEMPLE :
+
+            Microbiopsie d'une lésion du sein gauche (externe) :
+
+            Quatre biopsies étudiées sur deux niveaux de coupes (taille cumulée : 58 mm de long).
+
+            Quatre d'entre elles sont colonisées par un carcinome mammaire infiltrant peu différencié. L'anisocaryose est marquée, les figures de mitoses sont rares.
+            Présence d'embole vasculaire néoplasique et d'engainement périnerveux. Absence de nécrose intra-tumorale.
+            Absence de contingent in situ identifiable.
+            INDEX PRONOSTIQUE DE SCARFF-BLOOM-RICHARDSON (modifié par Elston et Ellis) : SBR II (différenciation glandulaire : 3, anisocaryose : 3, mitoses : 1).
+            Index mitotique : 1.4 mitoses/mm².
+
+            Immunohistochimie :
+            - RA positif hétérogène faible
+            - Ecadhérine persistant
+            - index Ki67 à 30%
+            - Récepteurs hormonaux :  ER : 3+/30 % ; PR : 3+/20 %.
+            Etude immuno-histochimique sur coupes de tissu fixé inclus en paraffine avec les anticorps monoclonaux anti-récepteurs d'œstrogène et anti-récepteurs de la progestérone sur l'automate Ventana. Contrôle par témoins externes positifs.
+            - Statut HER2 (selon les recommandations GEFPICS 2021) : marquage de type 3+ par plus de 10 % des cellules tumorales.
+            Etude immuno-histochimique effectuée pour la détermination du statut c-erb-B2 (HER2/neu), réalisée avec l'anticorps monoclonal Ventana, sur l'automate Ventana. Contrôle par témoin externe  positif.
+
+            Conclusion :
+            Microbiopsie d'une lésion du sein gauche (externe) :
+            CARCINOME INFILTRANT de type non spécifique, SBR II.
+            Récepteurs hormonaux :  ER : 3+/30 % ; PR : 3+/20 %.
+            HER2 : score 3+.
+            Index Ki67 à 30%.
+            Échantillon tumoral inclus en paraffine pour génétique somatique sous la référence de bloc : 1. Absence de décalcification.
+            Pourcentage de cellules tumorales dans la zone sélectionnée : 40 %. Absence de facteur confondant à type de nécrose, fibrose, ou mucine.
+            FIN DE L'EXEMPLE
+            """
 
             user_prompt = f"""[RÉSULTATS TECHNIQUES]
             {json.dumps(technical_data, indent=2)}
@@ -538,6 +573,7 @@ elif navigation == "Analyse et Résultats":
                 "cellularite": str,
                 "grade": str,
                 "caracteristiques": [str, str, str],
+                "proposition d'analyses complémentaires": [str, str, str]
                 "notes": str
             }}
             """
@@ -751,3 +787,4 @@ st.markdown("""
         </center>
     </footer>
 """, unsafe_allow_html=True)
+
